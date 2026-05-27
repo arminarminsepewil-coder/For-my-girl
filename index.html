@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Forever Loving You ❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:black;
+    overflow-x:hidden;
+    color:white;
+}
+
+/* PAGE */
+
+.page{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+/* INTRO */
+
+#intro{
+    background:linear-gradient(135deg,#ff4d6d,#7b2cbf);
+    text-align:center;
+    padding:20px;
+}
+
+#intro h1{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.arrow{
+    font-size:50px;
+    animation:updown 1s infinite;
+}
+
+@keyframes updown{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(10px);}
+    100%{transform:translateY(0);}
+}
+
+#intro p{
+    margin-top:10px;
+    margin-bottom:20px;
+    font-size:20px;
+}
+
+button{
+    padding:15px 35px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#ff4d6d;
+    font-size:20px;
+    cursor:pointer;
+}
+
+/* CARD PAGE */
+
+#cardsPage{
+    background:#111;
+    padding:30px 10px;
+    display:none;
+}
+
+.cards{
+    width:100%;
+    max-width:950px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
+}
+
+@media(min-width:700px){
+
+.cards{
+    grid-template-columns:1fr 1fr;
+}
+
+}
+
+.card{
+    position:relative;
+    height:320px;
+    overflow:hidden;
+    border-radius:20px;
+    border:4px solid #ff4d6d;
+    cursor:pointer;
+    transition:0.5s;
+}
+
+.card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    image-rendering:pixelated;
+    filter:contrast(120%) saturate(120%);
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.88);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+    line-height:1.8;
+    font-size:18px;
+    transform:translateX(-100%);
+    transition:0.5s;
+}
+
+.card.active{
+    transform:translateX(15px);
+}
+
+.card.active .overlay{
+    transform:translateX(0);
+}
+
+#finishBtn{
+    display:none;
+    margin-top:30px;
+    background:#ff4d6d;
+    color:white;
+}
+
+/* FINAL PAGE */
+
+#final{
+    background:black;
+    display:none;
+    overflow:hidden;
+    position:relative;
+}
+
+#final h1{
+    margin-top:100px;
+    font-size:45px;
+    color:#ff4d6d;
+    text-align:center;
+}
+
+.lyric{
+    margin-top:30px;
+    font-size:24px;
+    line-height:1.8;
+    text-align:center;
+    padding:20px;
+    max-width:900px;
+}
+
+.heart{
+    position:absolute;
+    color:#ff4d6d;
+    animation:fly 5s linear infinite;
+}
+
+@keyframes fly{
+
+from{
+    transform:translateY(100vh);
+    opacity:1;
+}
+
+to{
+    transform:translateY(-120vh);
+    opacity:0;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- SUARA IPHONE -->
+<audio id="notif">
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4f0c4f4f6f.mp3?filename=iphone-notification-113633.mp3" type="audio/mp3">
+</audio>
+
+<!-- HALAMAN MASUK -->
+<div class="page" id="intro">
+
+<h1>Selamatt datang sayangg ❤️</h1>
+
+<div class="arrow">⬇</div>
+
+<p>di tekan yaa sayangg</p>
+
+<button onclick="masuk()">Masuk</button>
+
+</div>
+
+<!-- HALAMAN KARTU -->
+<div class="page" id="cardsPage">
+
+<div class="cards">
+
+<!-- CARD 1 -->
+<div class="card" onclick="openCard(this)">
+
+<img src="https://drive.google.com/uc?export=view&id=1amNCalRIqfht0quVu-lqzGGxP2Dg9ktP">
+
+<div class="overlay">
+
+untuk perempuan tercantik yang selalu membuat hariku terasa indah ❤️
+
+</div>
+
+</div>
+
+<!-- CARD 2 -->
+<div class="card" onclick="openCard(this)">
+
+<img src="https://drive.google.com/uc?export=view&id=1p1t9LlYrkSC6RkePnud5PL3kxAHcxDF5">
+
+<div class="overlay">
+
+terimakasih sudah bertahan bersamaku 🌸
+
+</div>
+
+</div>
+
+<!-- CARD 3 -->
+<div class="card" onclick="openCard(this)">
+
+<img src="https://drive.google.com/uc?export=view&id=18ajgf21sQ9-OC9V1n2LuZwt8-PyRFJMY">
+
+<div class="overlay">
+
+maaf untuk semua kesalahan dan sikapku 💗
+
+</div>
+
+</div>
+
+<!-- CARD 4 -->
+<div class="card" onclick="openCard(this)">
+
+<img src="https://drive.google.com/uc?export=view&id=11DQPYnBEsCF1j3swToxvSl2f24fcNZsd">
+
+<div class="overlay">
+
+aku bersyukur banget dipertemukan dengan kamu 💖
+
+</div>
+
+</div>
+
+</div>
+
+<button id="finishBtn" onclick="finishPage()">
+
+Halaman Akhir ❤️
+
+</button>
+
+</div>
+
+<!-- HALAMAN AKHIR -->
+<div class="page" id="final">
+
+<h1>Forever Loving You ❤️</h1>
+
+<div class="lyric">
+
+forever loving my girl because she's the most loving,
+kind and the strongest person i've ever met
+and im so proud of her.
+<br><br>
+
+forever loving my girl because she deserves the world
+and should've never had to go through all the things
+that happened to her.
+<br><br>
+
+forever loving my girl because she makes me the happiest
+i've ever been and makes me feel seen,
+needed and understood ❤️
+
+</div>
+
+</div>
+
+<script>
+
+let total = 0;
+
+function masuk(){
+
+document.getElementById("notif").play();
+
+document.getElementById("intro").style.display = "none";
+
+document.getElementById("cardsPage").style.display = "flex";
+
+}
+
+function openCard(card){
+
+if(!card.classList.contains("active")){
+
+card.classList.add("active");
+
+total++;
+
+if(total == 4){
+
+document.getElementById("finishBtn").style.display = "block";
+
+}
+
+}
+
+}
+
+function finishPage(){
+
+document.getElementById("cardsPage").style.display = "none";
+
+document.getElementById("final").style.display = "flex";
+
+setInterval(()=>{
+
+const heart = document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML = "❤️";
+
+heart.style.left = Math.random()*100 + "vw";
+
+heart.style.fontSize = (Math.random()*40+20) + "px";
+
+heart.style.animationDuration = (Math.random()*3+3) + "s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},5000);
+
+},200);
+
+}
+
+</script>
+
+</body>
+</html>
